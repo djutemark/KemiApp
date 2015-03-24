@@ -5,8 +5,6 @@ Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-
 EndProject
 Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-vs.csproj", "{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}"
 EndProject
-Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-Editor-vs.csproj", "{ED546471-E55C-2C5C-3BCC-005FF75489E0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,15 +19,11 @@ Global
 		{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED546471-E55C-2C5C-3BCC-005FF75489E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED546471-E55C-2C5C-3BCC-005FF75489E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED546471-E55C-2C5C-3BCC-005FF75489E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED546471-E55C-2C5C-3BCC-005FF75489E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-									GlobalSection(MonoDevelopProperties) = preSolution
+																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

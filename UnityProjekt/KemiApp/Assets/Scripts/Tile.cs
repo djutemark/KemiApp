@@ -3,8 +3,14 @@ using System.Collections;
 
 public class Tile : MonoBehaviour {
 
-    void OnMouseOver()
+    int i = 0;
+
+    public Sprite bytTill;
+
+    void OnMouseDown()
     {
-        Debug.Log("Hello");
+        GetComponent<SpriteRenderer>().sprite = bytTill;
+        Debug.Log("Hello" + i);
+        i++;
     }
 }

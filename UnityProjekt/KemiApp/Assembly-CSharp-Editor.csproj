@@ -47,13 +47,42 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <None Include="Assets\Parse\Parse.Unity\Parse.Unity.xml" />
+     <None Include="Assets\Parse\Parse.Android\Parse.Android.xml" />
+     <None Include="Assets\Parse\Parse.xml" />
+     <None Include="Assets\Parse\Parse.NetFx45.xml" />
+     <None Include="Assets\Parse\Parse.iOS\Parse.iOS.xml" />
+     <None Include="Assets\Parse\Parse.WinRT.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Parse\third_party_licenses.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Parse\Parse.Phone.xml" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse.NetFx45">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.NetFx45.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse.Phone">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.Phone.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse.WinRT">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.WinRT.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse.Android">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.Android/Parse.Android.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse.iOS">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.iOS/Parse.iOS.dll</HintPath>
+ </Reference>
+ <Reference Include="Parse.Unity">
+ <HintPath>C:/Users/Dennis/Documents/GitHub/KemiApp/UnityProjekt/KemiApp/Assets/Parse/Parse.Unity/Parse.Unity.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -85,12 +114,6 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{F8124496-5586-6618-F84A-8D85907A11E1}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
