@@ -3,34 +3,54 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class MissionHandler : MonoBehaviour {
+    public GameObject missionButtonsText;
 
-    private GameObject inbox, UI;
+    private GameObject inbox, UI, canvas;
     private Mission mission;
+    public Mission[] missions;          // Later on, make this private
     private Character player;
 
     private double timer, cooldown;
     public double timeBetweenCharacters, timeBeforeMission;
     int i, j, bi;
     private bool header, description, objectives, textFinished;
-    private bool[] missions;
+    private string missionButtonText, missionButtonTextNew;
 
 	// Use this for initialization
 	void Start () {
+        
         inbox = GameObject.FindGameObjectWithTag("Inbox");
         inbox.SetActive(false);
-
-        // Later on fetch this from the database as a random of all quests!
-        mission = new Mission("Learning the game", "We will eventually teach you how to play this boring game!", new Objective[] { new Objective("Please go upstairs.", Actions.wentUpstairs)});
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
 
         UI = GameObject.FindGameObjectWithTag("Mission 1");
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
         Debug.Log(UI.name);
 
         i = 0;
         j = 0;
         bi = 0;
 
+        // Later on fetch this from the database as a random of all quests!
+        missions = new Mission[] {
+            new Mission("Tutorial 1", 
+                "You move with the A/D or left and right arrows. Please go up the stairs by moving over there and then go up by pressing W or up arrow.", 
+                new Objective[] {
+                    new Objective("Please go upstairs.", Actions.wentUpstairs)
+                }),
+            new Mission(
+                "Tutorial 2", 
+                "A packet just arrived at your doorstep, go and check your inbox! Pick it up by pressing E.", 
+                new Objective[] { 
+                    new Objective(
+                        "Check your inbox",
+                        Actions.getItemsInbox) 
+                })
+        };
+        mission = missions[bi];
+        Debug.Log(missions.Length);
+
         cooldown = timeBetweenCharacters;
         timer = cooldown;
 
@@ -38,13 +58,18 @@ public class MissionHandler : MonoBehaviour {
         description = true;
         objectives = true;
         textFinished = false;
-
-        missions = new bool[] { false, false };
+        missionButtonText = "Missions\n";
+        missionButtonTextNew = "Missions\nNew!";
     }
 
-    void Reset()
+    public void Reset()
     {
+        if (bi != missions.Length)
+            bi++;
+        Debug.Log("Reset Mission Handler. bi = " + bi);
+
         cooldown = timeBetweenCharacters;
+        if (bi == missions.Length) cooldown = timeBeforeMission;
         timer = cooldown;
 
         i = 0;
@@ -55,8 +80,12 @@ public class MissionHandler : MonoBehaviour {
         objectives = true;
         textFinished = false;
 
-        UI.transform.FindChild("Header").GetComponent<Text>().text = "";
-        UI.transform.FindChild("Description").GetComponent<Text>().text = "";
+        if (bi < missions.Length)
+        {
+            mission = missions[bi];
+            UI.transform.FindChild("Header").GetComponent<Text>().text = "";
+            UI.transform.FindChild("Description").GetComponent<Text>().text = "";
+        }
     }
 
     // Update is called once per frame
@@ -67,7 +96,7 @@ public class MissionHandler : MonoBehaviour {
         if (timer < 0) timer = 0;
 
         #region Print Text
-        if (timer == 0 && !textFinished)
+        if (timer == 0 && !textFinished && bi < missions.Length)
         {
             timer = cooldown;
             i++;
@@ -113,25 +142,27 @@ public class MissionHandler : MonoBehaviour {
         }
         #endregion
 
-        if (!mission.Completed)
+        if (mission.Completed == false)
         {
             foreach (Objective o in mission.Objectives)
             {
-                if (player.LatestAction == o.Action)
+                // This does only work with missions with 1 objective
+                if (player.LatestAction == o.Action)    // Mission Completed
                 {
                     UI.transform.FindChild("Header").GetComponent<Text>().text = "Mission Complete!";
                     UI.transform.FindChild("Description").GetComponent<Text>().text = "";
                     mission.Completed = true;
-                    timer = timeBeforeMission;
-                    bi++;
+                    if (bi != missions.Length - 1)
+                        missionButtonsText.GetComponent<Text>().text += "\nNew!";
+                    else
+                        Reset();        // Last time, increase to remove UI
                 }
             }
         }
-        else if (timer == 0 && bi < missions.Length)
+
+        if (bi == missions.Length && timer == 0)
         {
-            mission = new Mission("You got mail!", "A packet just arrived at your doorstep, go and check your inbox!", new Objective[] { new Objective("Check your inbox", Actions.getItemsInbox) });
-            cooldown = timeBetweenCharacters;
-            Reset();
+            UI.SetActive(false);
         }
     }
 
@@ -139,5 +170,14 @@ public class MissionHandler : MonoBehaviour {
     {
         set { inbox.SetActive(value);  }
         get { return inbox; }
+    }
+    public int BoolIndex
+    {
+        set { if (mission.Completed && bi < missions.Length) bi = value; }
+        get { return bi; }
+    }
+    public bool MissionCompleted
+    {
+        get { return mission.Completed; }
     }
 }

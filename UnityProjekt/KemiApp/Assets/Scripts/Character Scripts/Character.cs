@@ -16,6 +16,7 @@ public class Character : MonoBehaviour {
     private uint currentFloor;
     private GameObject helper;
     private Actions latestAction, actionAction;         // actionAction is the action we will use when we press the action button
+    private HelperHandler helperHandler;
 
     // Use this for initialization
     void Start()
@@ -32,6 +33,8 @@ public class Character : MonoBehaviour {
 
         helper = transform.GetChild(0).gameObject;
         helper.GetComponent<SpriteRenderer>().enabled = false;
+
+        helperHandler = GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Helper Handler").GetComponent<HelperHandler>();
 
         latestAction = Actions.nothing;
     }
@@ -116,6 +119,14 @@ public class Character : MonoBehaviour {
         if (Input.GetButton("Action")) 
         {
             latestAction = actionAction;
+            switch (latestAction)
+            {
+                case Actions.getItemsInbox:
+                    helperHandler.Inbox = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -142,7 +153,10 @@ public class Character : MonoBehaviour {
     }
     public Actions LatestAction
     {
-        set { latestAction = value; }
         get { return latestAction; }
+    }
+    public Actions ActionAction
+    {
+        set { actionAction = value; }
     }
 }

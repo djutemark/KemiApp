@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class HelperHandler : MonoBehaviour {
+    // Holds a list of all available items. This will later on be moved to the database
 
     private bool helpSign, last;
     private GameObject player;
@@ -43,6 +44,10 @@ public class HelperHandler : MonoBehaviour {
     }
     public Actions ActionToPlayer
     {
-        set { player.GetComponent<Character>().LatestAction = value; }
+        set { player.GetComponent<Character>().ActionAction = value; }
+    }
+    public bool Inbox
+    {
+        set { GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Mission Handler").GetComponent<MissionHandler>().Inbox = value; }
     }
 }

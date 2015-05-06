@@ -1,16 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum Actions
-{
-    nothing,
-    openWorkstation,
-    wentUpstairs,
-    wentDownstairs,
-    getItemsInbox,
-    deliverItems
-}
-
+// A class for easier use of the enumeration Actions down below
 public static class CheckActions
 {
     public static string ActionToString(Actions action)
@@ -25,4 +16,15 @@ public static class CheckActions
                 return action.ToString();
         }
     }
+}
+
+// An enumeration containing all possible actions in the game
+public enum Actions
+{
+    nothing,
+    openWorkstation,
+    wentUpstairs,
+    wentDownstairs,
+    getItemsInbox,
+    deliverItems
 }
