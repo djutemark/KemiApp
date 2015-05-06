@@ -46,10 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraScript.cs" />
-     <Compile Include="Assets\Scripts\Character.cs" />
-     <Compile Include="Assets\Scripts\Stairs.cs" />
-     <Compile Include="Assets\Scripts\TestObjekt.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\Handler Scripts\MissionHandler.cs" />
+     <Compile Include="Assets\Scripts\Kemi\Amne.cs" />
+     <Compile Include="Assets\Scripts\Kemi\Grundamne.cs" />
+     <Compile Include="Assets\Scripts\Kemi\Vatska.cs" />
+     <Compile Include="Assets\Scripts\Lab Scripts\Inbox.cs" />
+     <Compile Include="Assets\Scripts\Lab Scripts\Stairs.cs" />
+     <Compile Include="Assets\Scripts\Lab Scripts\TestObjekt.cs" />
+     <Compile Include="Assets\Scripts\Mission.cs" />
+     <Compile Include="Assets\Scripts\UITest.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
