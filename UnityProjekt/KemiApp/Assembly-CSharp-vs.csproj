@@ -39,27 +39,29 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Dev/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Dev/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Actions.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\Handler Scripts\HelperHandler.cs" />
      <Compile Include="Assets\Scripts\Handler Scripts\MissionHandler.cs" />
-     <Compile Include="Assets\Scripts\Kemi\Amne.cs" />
-     <Compile Include="Assets\Scripts\Kemi\Grundamne.cs" />
-     <Compile Include="Assets\Scripts\Kemi\Vatska.cs" />
+     <Compile Include="Assets\Scripts\Kemi\Elemental.cs" />
+     <Compile Include="Assets\Scripts\Kemi\Liquid.cs" />
+     <Compile Include="Assets\Scripts\Kemi\Substance.cs" />
      <Compile Include="Assets\Scripts\Lab Scripts\Inbox.cs" />
+     <Compile Include="Assets\Scripts\Lab Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\Lab Scripts\Stairs.cs" />
-     <Compile Include="Assets\Scripts\Lab Scripts\TestObjekt.cs" />
      <Compile Include="Assets\Scripts\Mission.cs" />
      <Compile Include="Assets\Scripts\UITest.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Dev/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

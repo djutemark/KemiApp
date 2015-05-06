@@ -12,6 +12,7 @@ public class Mission {
 
     private string header, missionText;
     private Objective[] objectives;
+    private bool completed;
 
     public Mission()
     {
@@ -24,49 +25,62 @@ public class Mission {
         this.header = header;
         this.missionText = missionText;
         this.objectives = objectives;
+        completed = false;
     }
-
     public string Header
     {
         set { header = value; }
         get { return header; }
     }
-
     public string MissionText
     {
         set { missionText = value; }
         get { return missionText; }
     }
-
     public Objective[] Objectives
     {
         set { objectives = value; }
         get { return objectives; }
     }
+    public bool Completed
+    {
+        set { completed = value; }
+        get { return completed; }
+    }
 }
 
 public class Objective
 {
-    private string[] description;
-    private bool[] lista;
+    private string description;
+    private Actions action;
 
-    public Objective(string[] description, bool[] lista)
+    public Objective(string description, Actions action)
     {
         this.description = description;
-        this.lista = lista;
+        this.action = action;
+
+        // Things to do if special actions is wanted such as chek inbox
+        switch (action)
+        {
+            case Actions.getItemsInbox:
+                GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Mission Handler").GetComponent<MissionHandler>().Inbox = true;
+                break;
+            default:
+                break;
+        }
 
     }
 
-    public string[] Description
+    public string Description
     {
         set { description = value; }
         get { return description; }
     }
 
-    public bool[] Lista
+    public Actions Action
     {
-        set { lista = value; }
-        get { return lista; }
+        set { action = value; }
+        get { return action; }
     }
 
 }
