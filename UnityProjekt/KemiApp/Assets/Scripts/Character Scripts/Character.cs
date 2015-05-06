@@ -14,6 +14,8 @@ public class Character : MonoBehaviour {
     private double timeBeforeUp; // Time before we can press up again
     private GameObject[] floors;
     private uint currentFloor;
+    private GameObject helper;
+    private Actions latestAction, actionAction;         // actionAction is the action we will use when we press the action button
 
     // Use this for initialization
     void Start()
@@ -27,6 +29,11 @@ public class Character : MonoBehaviour {
 
         floors = GameObject.FindGameObjectsWithTag("Stair");
         currentFloor = 0;
+
+        helper = transform.GetChild(0).gameObject;
+        helper.GetComponent<SpriteRenderer>().enabled = false;
+
+        latestAction = Actions.nothing;
     }
 
     void Movement()
@@ -73,6 +80,7 @@ public class Character : MonoBehaviour {
                                 currentFloor++;
                                 transform.position = floors[j].transform.GetChild(0).position;
                                 Debug.Log("Nuvarande våning = " + floors[j].GetComponent<Stairs>().floor);
+                                latestAction = Actions.wentUpstairs;
                                 break;
                             }
                         }
@@ -92,6 +100,7 @@ public class Character : MonoBehaviour {
                             {
                                 currentFloor--;
                                 transform.position = floors[j].transform.GetChild(0).position;
+                                latestAction = Actions.wentDownstairs;
                                 break;
                             }
                         }
@@ -102,10 +111,23 @@ public class Character : MonoBehaviour {
         #endregion
     }
 
+    void Action()
+    {
+        if (Input.GetButton("Action")) 
+        {
+            latestAction = actionAction;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         Movement();
+
+        // When character does something, check if it's currently an objective, if so update the list.
+        // If this is going to work we will need an enumeration of possible things one can do.
+
+        Action();
     }
 
     public bool Stairs
@@ -113,5 +135,14 @@ public class Character : MonoBehaviour {
         set { stairs = value; }
         get { return stairs; }
     }
-
+    public GameObject Helper
+    {
+        set { helper = value; }
+        get { return helper; }
+    }
+    public Actions LatestAction
+    {
+        set { latestAction = value; }
+        get { return latestAction; }
+    }
 }
