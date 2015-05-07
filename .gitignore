@@ -13,7 +13,6 @@
 *.pidb
 *.booproj
 *.meta
-*.suo
 
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
@@ -65,4 +64,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-UnityProjekt/KemiApp/KemiApp.suo
+UnityProjekt/KemiApp/Assembly-CSharp-Editor.vs.csproj
+UnityProjekt/KemiApp/Assembly-CSharp-Editor.csproj
+UnityProjekt/KemiApp/Assembly-CSharp-firstpass.vs.csproj
+UnityProjekt/KemiApp/Assembly-CSharp-firstpass.csproj
+UnityProjekt/KemiApp/KemiApp.v12.suo
+UnityProjekt/KemiApp/ProjectSettings/ProjectSettings.asset
