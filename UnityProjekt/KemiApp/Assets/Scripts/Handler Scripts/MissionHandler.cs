@@ -41,7 +41,7 @@ public class MissionHandler : MonoBehaviour {
                 }),
             new Mission(
                 "Tutorial 2", 
-                "A packet just arrived at your doorstep, go and check your inbox! Pick it up by pressing E.", 
+                "A package just arrived at your doorstep, go and check your inbox! Pick it up by pressing E.", 
                 new Objective[] { 
                     new Objective(
                         "Check your inbox",
@@ -80,11 +80,11 @@ public class MissionHandler : MonoBehaviour {
         objectives = true;
         textFinished = false;
 
+        UI.transform.FindChild("Description").GetComponent<Text>().text = "";
         if (bi < missions.Length)
         {
             mission = missions[bi];
             UI.transform.FindChild("Header").GetComponent<Text>().text = "";
-            UI.transform.FindChild("Description").GetComponent<Text>().text = "";
         }
     }
 
@@ -96,7 +96,7 @@ public class MissionHandler : MonoBehaviour {
         if (timer < 0) timer = 0;
 
         #region Print Text
-        if (timer == 0 && !textFinished && bi < missions.Length)
+        if (timer == 0 && !textFinished && bi < missions.Length && !mission.Completed)
         {
             timer = cooldown;
             i++;
@@ -150,10 +150,12 @@ public class MissionHandler : MonoBehaviour {
                 if (player.LatestAction == o.Action)    // Mission Completed
                 {
                     UI.transform.FindChild("Header").GetComponent<Text>().text = "Mission Complete!";
-                    UI.transform.FindChild("Description").GetComponent<Text>().text = "";
                     mission.Completed = true;
                     if (bi != missions.Length - 1)
+                    {
                         missionButtonsText.GetComponent<Text>().text += "\nNew!";
+                        UI.transform.FindChild("Description").GetComponent<Text>().text = "Press on the missions-button in the upper left hand corner to continue.";
+                    }
                     else
                         Reset();        // Last time, increase to remove UI
                 }
