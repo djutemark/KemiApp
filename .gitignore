@@ -70,3 +70,9 @@ UnityProjekt/KemiApp/Assembly-CSharp-firstpass.vs.csproj
 UnityProjekt/KemiApp/Assembly-CSharp-firstpass.csproj
 UnityProjekt/KemiApp/KemiApp.v12.suo
 UnityProjekt/KemiApp/ProjectSettings/ProjectSettings.asset
+
+UnityProjekt/KemiApp/Assembly-CSharp-vs.csproj
+UnityProjekt/KemiApp/Assembly-CSharp.csproj
+UnityProjekt/KemiApp/KemiApp-csharp.csproj
+UnityProjekt/KemiApp/KemiApp.sln
+UnityProjekt/KemiApp/ProjectSettings/ProjectSettings.asset
