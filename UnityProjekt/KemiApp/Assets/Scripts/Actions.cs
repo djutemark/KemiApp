@@ -26,5 +26,7 @@ public enum Actions
     wentUpstairs,
     wentDownstairs,
     getItemsInbox,
-    deliverItems
+    deliverItems,
+    openCabinet,
+    closeCabinet
 }

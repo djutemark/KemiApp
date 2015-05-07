@@ -4,8 +4,9 @@ using System.Collections;
 public class Interactable : MonoBehaviour {
 
     public Actions action;
+    public bool showHelper;
 
-    private HelperHandler helperHandler;
+    protected HelperHandler helperHandler;
 
     private int c = 0;
     private bool b = false;
@@ -19,7 +20,7 @@ public class Interactable : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            helperHandler.HelpSign = true;
+            helperHandler.HelpSign = showHelper;
             helperHandler.ActionToPlayer = action;
         }
     }

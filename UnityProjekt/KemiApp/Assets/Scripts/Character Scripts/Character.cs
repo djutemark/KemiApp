@@ -124,6 +124,9 @@ public class Character : MonoBehaviour {
                 case Actions.getItemsInbox:
                     helperHandler.Inbox = false;
                     break;
+                case Actions.openCabinet:
+                    // Open the cabinet UI
+                    break;
                 default:
                     break;
             }

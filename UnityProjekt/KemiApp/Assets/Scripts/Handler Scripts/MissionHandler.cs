@@ -46,7 +46,18 @@ public class MissionHandler : MonoBehaviour {
                     new Objective(
                         "Check your inbox",
                         Actions.getItemsInbox) 
-                })
+                }),
+            new Mission("Tutorial 3", "Please open the cabinet by walking over to it and pressing the action button. Close the cabinet by bressing the action button once more.", new Objective[] 
+            {
+                new Objective(
+                    "Open the cabinet.",
+                    Actions.openCabinet
+                ),
+                new Objective(
+                    "Close the cabinet.",
+                    Actions.closeCabinet
+                )
+            })
         };
         mission = missions[bi];
         Debug.Log(missions.Length);
