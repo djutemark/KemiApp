@@ -1,11 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-firstpass.csproj", "{F8124496-5586-6618-F84A-8D85907A11E1}"
+Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-firstpass-vs.csproj", "{F8124496-5586-6618-F84A-8D85907A11E1}"
 EndProject
-Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp.csproj", "{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}"
+Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-vs.csproj", "{D2E85E7C-5481-D63B-5D54-4EDC0BB47F46}"
 EndProject
-Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-Editor.csproj", "{ED546471-E55C-2C5C-3BCC-005FF75489E0}"
+Project("{5D660A68-4FA1-DC4B-C6A7-F270A12BA549}") = "KemiApp", "Assembly-CSharp-Editor-vs.csproj", "{ED546471-E55C-2C5C-3BCC-005FF75489E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-				GlobalSection(MonoDevelopProperties) = preSolution
+					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $3
