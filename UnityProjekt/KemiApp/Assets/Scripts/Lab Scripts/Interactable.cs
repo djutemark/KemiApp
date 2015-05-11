@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2Dx (Collider2D other)
     {
         if (other.tag == "Player")
         {
