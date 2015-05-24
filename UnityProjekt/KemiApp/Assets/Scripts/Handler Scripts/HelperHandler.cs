@@ -46,8 +46,4 @@ public class HelperHandler : MonoBehaviour {
     {
         set { player.GetComponent<Character>().ActionAction = value; }
     }
-    public bool Inbox
-    {
-        set { GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Mission Handler").GetComponent<MissionHandler>().Inbox = value; }
-    }
 }

@@ -17,6 +17,7 @@ public class Character : MonoBehaviour {
     private GameObject helper;
     private Actions latestAction, actionAction;         // actionAction is the action we will use when we press the action button
     private HelperHandler helperHandler;
+    private MissionHandler missionHandler;
 
     // Use this for initialization
     void Start()
@@ -35,6 +36,7 @@ public class Character : MonoBehaviour {
         helper.GetComponent<SpriteRenderer>().enabled = false;
 
         helperHandler = GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Helper Handler").GetComponent<HelperHandler>();
+        missionHandler = GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Mission Handler").GetComponent<MissionHandler>();
 
         latestAction = Actions.nothing;
     }
@@ -122,7 +124,8 @@ public class Character : MonoBehaviour {
             switch (latestAction)
             {
                 case Actions.getItemsInbox:
-                    helperHandler.Inbox = false;
+                    // Check if we got a handheld item, if not pick up the item else show message to the player he cannot carry anymore
+                    missionHandler.Inbox = false;
                     break;
                 case Actions.openCabinet:
                     // Open the cabinet UI

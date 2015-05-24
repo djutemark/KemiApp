@@ -8,9 +8,6 @@ public class Interactable : MonoBehaviour {
 
     protected HelperHandler helperHandler;
 
-    private int c = 0;
-    private bool b = false;
-
     void Start()
     {
         helperHandler = GameObject.FindGameObjectWithTag("Handlers").transform.FindChild("Helper Handler").GetComponent<HelperHandler>();
@@ -25,7 +22,7 @@ public class Interactable : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit2Dx (Collider2D other)
+    void OnTriggerExit2D (Collider2D other)
     {
         if (other.tag == "Player")
         {

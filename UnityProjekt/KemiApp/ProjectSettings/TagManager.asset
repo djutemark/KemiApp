@@ -13,6 +13,7 @@ TagManager:
   - Mission 3
   - Handlers
   - Canvas
+  - Parse
   layers:
   - Default
   - TransparentFX

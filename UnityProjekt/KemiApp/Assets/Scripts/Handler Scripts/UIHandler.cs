@@ -21,7 +21,6 @@ public class UIHandler : MonoBehaviour {
     {
         if (missionHandler.MissionCompleted && missionHandler.BoolIndex != missionHandler.missions.Length)
         {
-            //missionHandler.GetComponent<MissionHandler>().BoolIndex++;
             missionHandler.GetComponent<MissionHandler>().Reset();
         }
     }

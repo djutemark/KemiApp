@@ -13,7 +13,7 @@ public class MissionHandler : MonoBehaviour {
     private double timer, cooldown;
     public double timeBetweenCharacters, timeBeforeMission;
     int i, j, bi;
-    private bool header, description, objectives, textFinished;
+    private bool header, description, objectives, textFinished, newMission;
     private string missionButtonText, missionButtonTextNew;
 
 	// Use this for initialization
@@ -99,12 +99,30 @@ public class MissionHandler : MonoBehaviour {
         }
     }
 
+    private void NewMission(Objective[] objectives)
+    {
+        foreach (Objective o in objectives)
+        {
+            switch (o.Action)
+            {
+                // List every action where we have to do something, like showing the package
+                case Actions.getItemsInbox:
+                    Inbox = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+        newMission = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-
         if (timer < 0) timer = 0;
+
+        if (newMission) NewMission(mission.Objectives);
 
         #region Print Text
         if (timer == 0 && !textFinished && bi < missions.Length && !mission.Completed)
@@ -116,9 +134,10 @@ public class MissionHandler : MonoBehaviour {
                 UI.transform.FindChild("Header").GetComponent<Text>().text += mission.Header[i - 1];
                 if (i == mission.Header.Length)
                 {
+                    newMission = true;
+                    Debug.Log("Enabling newMission");
                     i = 0;
                     header = false;
-                    Debug.Log(i);
                 }
             }
             else if (description)
@@ -129,7 +148,6 @@ public class MissionHandler : MonoBehaviour {
                     i = 0;
                     description = false;
                     UI.transform.FindChild("Description").GetComponent<Text>().text += "\n\nObjectives: ";
-                    Debug.Log(mission.Objectives[0].Description);
                 }
             }
             else if (objectives)
